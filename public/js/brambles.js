@@ -67,4 +67,4 @@
             ctx.fill();
         }.bind(this));
     };
-})(window.bramble = window.bramble || {});
+})(window.brambles = window.brambles || {});
