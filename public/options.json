@@ -7,13 +7,8 @@
 	"fillStyle": "blue",
 	"radius": 10
     },
-    "tagger": {
+    "zombies": {
 	"fillStyle": "orange",
-	"radius": 50,
-	"boost": 3
-    },
-    "tagged": {
-	"fillStyle": "gray",
-	"radius": 5
+	"radius": 10
     }
 }

@@ -1,4 +1,4 @@
-(function(tag){
+(function(brambles){
     function getJson(url){
         var request = new XMLHttpRequest();
 
@@ -7,19 +7,19 @@
         return JSON.parse(request.responseText);
     }
 
-    var canvas = document.getElementById('playground');
+    var canvas = document.getElementById('gameCanvas');
 
     var options = getJson('options.json');
     console.log(options);
 
-    var game = new tag.Game();
+    var game = new brambles.Game();
 
     var socket = io();
     socket.on('state', function(state){
         game.updateState(state);
     });
 
-    var view = new tag.GameView(game, canvas, socket, options);
+    var view = new brambles.GameView(game, canvas, socket, options);
     function animate(){
         view.update();
         requestAnimationFrame(animate);
@@ -38,4 +38,4 @@
     canvas.addEventListener('mouseleave', function(){
         canvas.removeEventListener('mousemove', mouseMoveHandler);
     });
-})(tag);
+})(brambles);
