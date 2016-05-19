@@ -16,7 +16,7 @@
     var Game = brambles.Game = function(){
         this.updateState({
             'players': [],
-            'zombies': []
+            'dead': []
         });
     };
     Game.prototype.updateState = function(state) {
@@ -24,10 +24,10 @@
     };
 
     var GameView = brambles.GameView = function(game, canvas, socket, options){
-        this.options = extend(options || {}
-                              , { 'width': 640, 'height': 640 }
-                              , { 'players' : {'fillStyle': 'blue', 'radius': 10 }}
-                              , { 'zombies': { 'fillStyle': 'orange', 'radius': 10 }});
+        this.options = extend(options || {},
+                               { 'width': 640, 'height': 640 },
+                               { 'players' : {'fillStyle': 'blue', 'radius': 10 }},
+                               { 'dead': { 'fillStyle': 'orange', 'radius': 10 }});
         this.game = game;
         this.canvas = canvas;
         this.socket = socket;
@@ -42,7 +42,7 @@
     GameView.prototype.update = function(){
         this.clear();
         this.paintPlayers();
-        this.paintZombies();
+        this.paintDead();
     };
     GameView.prototype.clear = function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -50,8 +50,8 @@
     GameView.prototype.paintPlayers = function(){
         this.paintObjects(this.game.state.players, this.options.players);
     };
-    GameView.prototype.paintZombies= function(){
-        this.paintObjects(this.game.state.zombies, this.options.zombies);
+    GameView.prototype.paintDead= function(){
+        this.paintObjects(this.game.state.dead, this.options.dead);
     };
     GameView.prototype.paintObjects = function(objects, options){
         var socketId = this.socket.id;

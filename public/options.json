@@ -7,7 +7,7 @@
 	"fillStyle": "blue",
 	"radius": 10
     },
-    "zombies": {
+    "dead": {
 	"fillStyle": "orange",
 	"radius": 10
     }

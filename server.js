@@ -22,7 +22,7 @@ var game = new Game(options);
 function emitGameState() {
     game.tick();
     io.emit('state', game.state());
-};
+}
 setInterval(emitGameState, 1000/60);
 
 io.on('connection', function(socket){
