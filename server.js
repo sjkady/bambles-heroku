@@ -12,11 +12,10 @@ app.get('/', function(request, response){
 
 var server = http.Server(app);
 var io = socketio(server);
-server.listen(3000, function(){
-    var host = server.address().address;
-    var port = server.address().port;
-
-    console.log('Listening on http://%s:%s', host, port);
+server.listen(process.env.PORT || 3000, function(){
+   var host = server.address().address;
+   var port = server.address().port;
+   console.log('Listening on http://%s:%s', host, port);
 });
 
 var game = new Game(options);
