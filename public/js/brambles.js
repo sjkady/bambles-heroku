@@ -182,12 +182,18 @@
     GameView.prototype.initialize = function() {
         this.canvas.width = this.options.width;
         this.canvas.height = this.options.height;
-        this.room.map.generate();
+        var room =
+        {
+          width: 3520,
+          height: 1760,
+          map: new GameView.map(this.options.room)
+        };
+        room.map.generate();
         objects.forEach(function(object)
         {
           if (object.id == socketId)
           {
-            var camera = new GameView.camera(0, 0, this.canvas.width, this.canvas.height, this.options.room.width, this.options.room.height);
+            var camera = new GameView.camera(0, 0, this.canvas.width, this.canvas.height, room.width, room.height);
             camera.follow(object, this.canvas.width, this.canvas.height);
           }
         }.bind(this));
