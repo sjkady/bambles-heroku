@@ -189,7 +189,7 @@
           height: 1760,
 
         };
-        var map = new GameView.map(this.options.room)
+        var map = new GameView.map(this.options.room);
         room.map.generate();
         objects.forEach(function(object)
         {
