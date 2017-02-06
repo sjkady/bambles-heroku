@@ -45,7 +45,8 @@
 
         this.initialize();
     };
-GameView.prototype.initialize = function(){
+
+
     GameView.prototype.rectangle = function(left, top, width, height) {
         this.left = left || 0;
         this.top = top || 0;
@@ -186,7 +187,6 @@ GameView.prototype.initialize = function(){
         {
           width: 3520,
           height: 1760,
-          map: new GameView.map(this.options.room)
         };
         room.map.generate();
         objects.forEach(function(object)
