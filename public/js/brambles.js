@@ -45,7 +45,7 @@
 
         this.initialize();
     };
-
+GameView.prototype.initialize = function(){
     GameView.prototype.rectangle = function(left, top, width, height) {
         this.left = left || 0;
         this.top = top || 0;
