@@ -183,13 +183,7 @@
     GameView.prototype.initialize = function() {
         this.canvas.width = this.options.width;
         this.canvas.height = this.options.height;
-        var room =
-        {
-          width: 3520,
-          height: 1760,
-
-        };
-        var map = new GameView.map(this.options.room);
+        var map = new GameView.map(this.options.room)
         room.map.generate();
         objects.forEach(function(object)
         {
