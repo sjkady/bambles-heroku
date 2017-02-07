@@ -183,8 +183,8 @@
     GameView.prototype.initialize = function() {
         this.canvas.width = this.options.width;
         this.canvas.height = this.options.height;
-        var map1 = new GameView.map(this.options)
-        map1.generate();
+        new GameView.map(this.options);
+        map.generate();
         objects.forEach(function(object)
         {
           if (object.id == socketId)
