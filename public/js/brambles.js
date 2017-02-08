@@ -183,13 +183,13 @@
     GameView.prototype.initialize = function() {
         this.canvas.width = this.options.width;
         this.canvas.height = this.options.height;
-        new GameView.map(this.options);
+        var map = this.GameView.map(this.options);
         map.generate();
         objects.forEach(function(object)
         {
           if (object.id == socketId)
           {
-            var camera = new GameView.camera(0, 0, this.canvas.width, this.canvas.height, room.width, room.height);
+            var camera = this.GameView.camera(0, 0, this.canvas.width, this.canvas.height, room.width, room.height);
             camera.follow(object, this.canvas.width, this.canvas.height);
           }
         }.bind(this));
